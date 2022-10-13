@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alquiler de Bicicletas</title>
+</head>
+
+<body>
+<h1>SPRINT 3</h1>
+
+<h2>BICICLETAS !</h2>
+<form>
+    <input type="text" id="brandBici" placeholder="Ingrese la marca" />
+    <input type="text" id="modelBici" placeholder="Ingrese el modelo" />
+    <input type="text" id="categoryBici" placeholder="Ingrese la categoría"/>
+    <input type="text" id="nameBici" placeholder="Ingrese el nombre"/>
+    <input type="text" id="descriptionBike" placeholder="Ingrese la descripción"/>
+</form>
+<br />
+<button onclick="guardarInformacion()">Guardar</button>
+<!--<button onclick="editarInformacion()">Actualizar</button> -->
+<button id="consultarBici" onclick="traerInformacion()">Consultar</button>
+<br />
+<br />
+<div id="listaBicis"></div>
+
+
+<h2>CATEGORIAS !</h2>
+<form>
+    <input type="text" id="nameCat" placeholder="Ingrese el nombre" />
+    <br>
+    <br>
+    <textarea name="descripcion" id="descripcionCat" cols="25" rows="6" placeholder="Ingresar descripcion..." style="resize: none"
+              required
+    ></textarea>
+</form>
+<br />
+<button onclick="enviarCategoria()">Guardar</button>
+<button id="consultarCat" onclick="obtenerCategoria()">Consultar</button>
+<br/>
+<br/>
+<div id="listaCategoria"></div>
+
+<h2>CLIENTES !</h2>
+<form>
+    <input type="text" id="nameCli" placeholder="Ingrese el nombre" />
+    <input type="text" id="emailCli" placeholder="Ingrese el correo" />
+    <input type="text" id="ageCli" placeholder="Ingrese la edad" />
+    <input type="text" id="pasCli" placeholder="Ingrese el password" />
+</form>
+<br />
+<button onclick="enviarCliente()">Guardar</button>
+<!--<button onclick="actualizarCliente()">Actualizar</button>
+<button onclick="buscarCliente()">Buscar</button>-->
+<button id="consultarCli" onclick="obtenerCliente()">Consultar</button>
+<br />
+<br />
+<div id="listaClientes"></div>
+
+<h2>MENSAJES !</h2>
+<input type="number" name="clientId-message" id="clientId-message" placeholder="ID del cliente">
+<input type="number" name="bikeId-message" id="bikeId-message" placeholder="ID de la bicicleta">
+<br />
+<br />
+<textarea
+        name="text-message"
+        id="text-message"
+        cols="25"
+        rows="6"
+        placeholder="Ingresar mensaje..."
+        style="resize: none"
+        required
+></textarea>
+<br />
+<br />
+<button id="enviarMensaje" onclick="guardarMensaje()">Guardar</button>
+<button id="listarMensajes" onclick="leerMensajes()">Consultar</button>
+<br />
+<br />
+<div id="listaMensajes"></div>
+<br />
+<br />
+
+<h2>RESERVAS !</h2>
+<div id="form-reservas">
+    <form>
+        <input type="number" name="clientId-reservation" id="clientId-reservation" placeholder="ID del cliente">
+        <input type="number" name="bikeId-reservation" id="bikeId-reservation" placeholder="ID de la bicicleta">
+        <br />
+        <br />
+        <label for="startDate-reservation">Fecha de inicio: </label>
+        <input type="date" name="startDate-reservation" id="startDate-reservation">
+
+        <label for="devolutionDate-reservation">Fecha de entrega: </label>
+        <input type="date" name="devolutionDate-reservation" id="devolutionDate-reservation">
+    </form>
+</div>
+<br />
+<button id="save-btn-reservation" onclick="saveReservation()">Guardar</button>
+<button id="list-btn-reservation" onclick="listReservations()">Consultar</button>
+<br />
+<br />
+<div id="reservationList"></div>
+<br />
+<br />
+
+<h2>USUARIOS ADMINISTRATIVOS !</h2>
+<form>
+    <input type="text" id="nombreUsuarioAdmo" placeholder="Ingrese su nombre"/>
+    <input type="text" id="emailUsuarioAdmo" placeholder="Ingrese su correo electrónico"/>
+    <input type="text" id="passwordUsuarioAdmo" placeholder="Ingrese su contraseña"/>
+</form>
+<br />
+<button onclick="guardarAdmoUser()">Guardar</button>
+<!-- <button onclick="editarAdmoUser()">Actualizar</button>-->
+<button id="consultarAdmoUser" onclick="getAdmoUser()">Consultar</button>
+<br />
+<br />
+<div id="listaAdmoUser"></div>
+<br />
+<br />
+<br />
+<br />
+
+<script src="js/bike.js"></script>
+<script src="js/client.js"></script>
+<script src="js/message.js"></script>
+<script src="js/reservation.js"></script>
+<script src="js/score.js"></script>
+<script src="js/userAdmin.js"></script>
+<script src="js/category.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</body>
+</html>

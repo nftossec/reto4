@@ -18,12 +18,12 @@ public class BikeRepository {
         return (List<Bike>) bikeCrudRepository.findAll();
     }
 
-    public Bike save(Bike bikes){
-        return bikeCrudRepository.save(bikes);
-    }
-
     public Optional<Bike> getBikes(Integer id){
         return bikeCrudRepository.findById(id);
+    }
+
+    public Bike save(Bike bikes){
+        return bikeCrudRepository.save(bikes);
     }
 
     public void delete (Bike bike){

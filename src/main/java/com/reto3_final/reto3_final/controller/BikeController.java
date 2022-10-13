@@ -8,8 +8,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+
 @RestController
-@RequestMapping("api/Bike")
+@RequestMapping("/api/Bike")
 @CrossOrigin(origins = "*",methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class BikeController {
 
@@ -21,16 +23,22 @@ public class BikeController {
         return bikeService.getAll();
     }
 
+    @GetMapping("/{id}")
+    public Optional<Bike> getBikes(@PathVariable("id") int id){
+
+        return bikeService.getBikes(id);
+    }
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Bike postBikes(@RequestBody Bike bikes) {
-        return bikeService.save(bikes);
+    public Bike postBikes(@RequestBody Bike bike) {
+        return bikeService.save(bike);
     }
 
     @PostMapping("/all")
     @ResponseStatus(HttpStatus.CREATED)
-    public Bike postBikes2(@RequestBody Bike bikes) {
-        return bikeService.save(bikes);
+    public Bike postBikes2(@RequestBody Bike bike) {
+        return bikeService.save(bike);
     }
 
     @PutMapping("/update")
@@ -42,8 +50,10 @@ public class BikeController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean deleteBike(@PathVariable("id") int id) {
+
         return bikeService.deleteBike(id);
     }
+
 
 }
 

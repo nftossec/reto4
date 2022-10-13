@@ -36,36 +36,39 @@ public class BikeService {
 
     }
 
-    public Bike update(Bike bike){
-        if(bike.getId()!=null){
+    public Bike update(Bike bike) {
+        if (bike.getId() != null) {
             Optional<Bike> q = bikeRepository.getBikes(bike.getId());
-            if(!q.isEmpty()) {
+            if (!q.isEmpty()) {
                 if (bike.getYear() != null) {
                     q.get().setYear(bike.getYear());
-                }
-                if (bike.getBrand() != null) {
-                    q.get().setBrand(bike.getBrand());
-                }
-                if (bike.getCategory() != null) {
-                    q.get().setCategory(bike.getCategory());
-                }
-                if (bike.getDescription()!=null){
-                    q.get().setDescription(bike.getDescription());
-                }
+                    }
+                    if (bike.getName() != null) {
+                        q.get().setName(bike.getName());
+                    }
+                    if (bike.getBrand() != null) {
+                        q.get().setBrand(bike.getBrand());
+                    }
+                    if (bike.getCategory() != null) {
+                        q.get().setCategory(bike.getCategory());
+                    }
+                    if (bike.getDescription() != null) {
+                        q.get().setDescription(bike.getDescription());
+                    }
 
-                if (bike.getCategory()!=null){
-                    q.get().setCategory(bike.getCategory());
-                }
+                    if (bike.getCategory() != null) {
+                        q.get().setCategory(bike.getCategory());
+                    }
                     bikeRepository.save(q.get());
-                return (q.get());
-            }else {
+                    return (q.get());
+                } else {
+                    return bike;
+                }
+            } else {
                 return bike;
             }
-        }else{
-            return bike;
-        }
-
     }
+
 
     /*   ******* reto2 con is present ***********
         public Bike update(Bike bike){
@@ -111,14 +114,13 @@ public class BikeService {
     ********************************************************
     */
 
-    public boolean deleteBike(int id){
-        Boolean d = getBikes(id).map(bike -> {
+
+    public boolean deleteBike(int id) {
+        boolean d = getBikes(id).map(bike -> {
             bikeRepository.delete(bike);
             return true;
         }).orElse(false);
         return d;
     }
-
-
 }
 

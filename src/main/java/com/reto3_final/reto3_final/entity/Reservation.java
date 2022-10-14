@@ -32,6 +32,7 @@ public class Reservation implements Serializable {
     private Score score;
 
 
+
    /* @OneToOne (cascade = CascadeType.REMOVE")
     @JsonIgnoreProperties("reservations")
     @PrimaryKeyJoinColumn

@@ -40,18 +40,16 @@ public class BikeService {
         if (bike.getId() != null) {
             Optional<Bike> q = bikeRepository.getBikes(bike.getId());
             if (!q.isEmpty()) {
-                if (bike.getYear() != null) {
-                    q.get().setYear(bike.getYear());
-                    }
-                    if (bike.getName() != null) {
-                        q.get().setName(bike.getName());
+                if (bike.getName() != null) {
+                    q.get().setName(bike.getName());
                     }
                     if (bike.getBrand() != null) {
                         q.get().setBrand(bike.getBrand());
                     }
-                    if (bike.getCategory() != null) {
-                        q.get().setCategory(bike.getCategory());
+                    if (bike.getYear() != null) {
+                        q.get().setYear(bike.getYear());
                     }
+
                     if (bike.getDescription() != null) {
                         q.get().setDescription(bike.getDescription());
                     }
